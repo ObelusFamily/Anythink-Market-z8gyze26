@@ -55,7 +55,7 @@ router.get("/", auth.optional, function(req, res, next) {
 
   // filter by query 'title'
   if (typeof req.query.title !== "undefined") {
-    { $filter: { title: { $all: req.query.title } } }
+    { $filter: { title: { $regex: req.query.title } } }
   }
 
   Promise.all([
